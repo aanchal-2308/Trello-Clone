@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import ApolloClient, { ApolloClient } from 'apollo-boost';
+import ApolloClient from 'apollo-boost';
 import VueApollo from 'vue-apollo';
 
 
