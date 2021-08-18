@@ -7616,7 +7616,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
   },
   apollo: {
     board: {
-      query: (0,graphql_tag__WEBPACK_IMPORTED_MODULE_1__.default)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n          query($id: ID!){\n            board(id: $id){\n                title\n                color\n                lists{\n                id\n                title\n                cards{\n                    id\n                    title\n                    order\n                    }      \n                }\n            }  \n        }"]))),
+      query: (0,graphql_tag__WEBPACK_IMPORTED_MODULE_1__.default)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        query ($id: ID!) {\n          board(id: $id) {\n            title\n            color\n            lists {\n              id\n              title\n              cards {\n                id\n                title\n                order\n              }\n            }\n          }\n        }\n      "]))),
       variables: {
         id: 1
       }
@@ -7681,9 +7681,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_1__.default.use('VueApollo');
+vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vue_apollo__WEBPACK_IMPORTED_MODULE_0__.default);
 var apolloClient = new apollo_boost__WEBPACK_IMPORTED_MODULE_2__.default({
-  uri: config('app.url') + '/graphql'
+  uri: 'http://localhost/graphql'
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vue_apollo__WEBPACK_IMPORTED_MODULE_0__.default({
   defaultClient: apolloClient

@@ -3,12 +3,13 @@ import ApolloClient from 'apollo-boost';
 import VueApollo from 'vue-apollo';
 
 
-Vue.use('VueApollo');
 
-let url = process.env.APP_URL;
+Vue.use(VueApollo);
+
+
 
 const apolloClient = new ApolloClient({
-    uri: url+'/graphql'
+    uri: 'http://localhost/graphql'
 });
 
 
