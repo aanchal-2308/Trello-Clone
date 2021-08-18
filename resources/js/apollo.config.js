@@ -5,8 +5,10 @@ import VueApollo from 'vue-apollo';
 
 Vue.use('VueApollo');
 
+let url = process.env.APP_URL;
+
 const apolloClient = new ApolloClient({
-    uri: config('app.url')+'/graphql'
+    uri: url+'/graphql'
 });
 
 

@@ -31,35 +31,35 @@
   </div>
 </template>
 <script>
-import gql from 'graphql-tag';
-import List from './components/List';
-export default{
+import gql from "graphql-tag";
+import List from "./components/List";
+export default {
   components: { List },
-  apollo:{
-      board:{
-          query: gql`
-          query($id: ID!){
-            board(id: $id){
-                title
-                color
-                lists{
+  apollo: {
+    board: {
+      query: gql`
+        query ($id: ID!) {
+          board(id: $id) {
+            title
+            color
+            lists {
+              id
+              title
+              cards {
                 id
                 title
-                cards{
-                    id
-                    title
-                    order
-                    }      
-                }
-            }  
-        }`,
-        variables:{
-            id: 1
+                order
+              }
+            }
+          }
         }
-
-      }
-  }
-}
+      `,
+      variables: {
+        id: 1,
+      },
+    },
+  },
+};
 </script>
 <style scoped>
 .header {
