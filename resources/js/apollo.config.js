@@ -9,7 +9,10 @@ Vue.use(VueApollo);
 
 
 const apolloClient = new ApolloClient({
-    uri: 'http://localhost/graphql'
+    uri: "http://localhost/graphql",
+    fetchOptions: {
+        mode: "no-cors"
+    }
 });
 
 
