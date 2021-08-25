@@ -18,6 +18,23 @@ const mix = require('laravel-mix');
  ])
  .webpackConfig(require("./webpack.config"));
 
+ class GraphQl {
+    dependencies(){
+        return ['graphql','graphql-tag']
+    }
+
+    webpackRules(){
+        return {
+            test: /\.(graphql|gql)$/,
+            exclude: /node_modules/,
+            loader: 'graphql-tag/loader',
+        }
+    }
+}
+
+mix.extend('graphql', new GraphQl());
+mix.graphql();
+
 if (mix.inProduction()) {
  mix.version();
 }

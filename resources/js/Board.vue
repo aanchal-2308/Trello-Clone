@@ -31,32 +31,17 @@
 <script>
 import gql from "graphql-tag";
 import List from "./components/List";
+import GetBoard from "./queries/GetBoard.gql";
 export default {
   components: { List },
   apollo: {
     board: {
-      query: gql`
-        query ($id: ID!) {
-          board(id: $id) {
-            title
-            color
-            lists {
-              id
-              title
-              cards {
-                id
-                title
-                order
-              }
-            }
-          }
-        }
-      `,
+      query: GetBoard,
       variables: {
         id: 1,
       },
     },
-  },
+  }, 
 };
 </script>
 <style scoped>
