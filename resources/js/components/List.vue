@@ -1,13 +1,9 @@
 <template>
      <div class="list bg-gray-300 rounded-sm p-2 mr-3">
                     <div class="flex justify-between">
-                        <div class="text-gray-800 pl-2 font-bold">List Title</div>
+                        <div class="text-gray-800 pl-2 font-bold">{{list.title}}</div>
                     </div>
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
+                   <Card v-for="card in list.cards" :key="card.id" :card="card"></Card>
                    <AddCardButton></AddCardButton>
 
                 </div>
@@ -17,6 +13,9 @@ import Card from './Card';
 import AddCardButton from './CardAddButton';
 export default{
   components: { Card , AddCardButton },
+  props:{
+    list: Object
+  }
 }
 </script>
 
