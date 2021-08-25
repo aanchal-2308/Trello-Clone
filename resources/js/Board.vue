@@ -20,10 +20,10 @@
     <div class="h-full flex flex-1 flex-col items-stretch">
       <div class="mx-4 mb-2 text-white font-bold text-lg">
         <span v-if="$apollo.queries.board.loading">Loading...</span>
-        <span v-else>{{ $board.title }}</span>
+        <span v-else>{{ board.title }}</span>
       </div>
       <div class="flex flex-1items-start overflow-x-auto mx-2" v-if="board">
-        <List :list="list" v-for="list in baord.lists" :key="list.id"></List>
+        <List :list="list" v-for="list in board.lists" :key="list.id"></List>
       </div>
     </div>
   </div>
