@@ -2,7 +2,8 @@
 scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
 "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
-scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar DateTime
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
 type Query {
     users: [User!]! @paginate(defaultCount: 10)
@@ -11,7 +12,9 @@ type Query {
 }
 
 type Mutation {
-    cardAdd(title: String!, order: Int!, card_list_id: ID!,user_id: ID!): Card! @create
+    cardAdd(
+        input: CardAddInput! @spread
+    ): Card! @create
 }
 
 type User {
@@ -20,11 +23,11 @@ type User {
     email: String!
     created_at: DateTime!
     updated_at: DateTime!
-    boards:[Board!]! @hasMany
-    cards:[Card!]! @hasMany
+    boards: [Board!]! @hasMany
+    cards: [Card!]! @hasMany
 }
 
-type Board{
+type Board {
     id: ID!
     created_at: DateTime!
     updated_at: DateTime!
@@ -32,10 +35,9 @@ type Board{
     color: String!
     lists: [CardList!]! @hasMany
     owner: User! @belongsTo
-
 }
 
-type CardList{
+type CardList {
     id: ID!
     created_at: DateTime!
     updated_at: DateTime!
@@ -44,7 +46,7 @@ type CardList{
     board: Board! @belongsTo
 }
 
-type Card{
+type Card {
     id: ID!
     created_at: DateTime!
     updated_at: DateTime!
@@ -52,4 +54,11 @@ type Card{
     order: Int!
     list: CardList! @belongsTo
     owner: User! @belongsTo
+}
+
+input CardAddInput {
+    title: String!
+    order: Int!
+    card_list_id: ID!
+    user_id: ID!
 }
